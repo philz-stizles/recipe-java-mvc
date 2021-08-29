@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-RecipeAppApplication<recipe-app>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "io.devdezyn.recipeapp.RecipeAppApplication",
+      "projectName": "recipe-app",
+      "args": ""
+    }
+  ]
+}
