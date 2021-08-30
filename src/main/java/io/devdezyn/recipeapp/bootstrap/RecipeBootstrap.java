@@ -2,6 +2,7 @@ package io.devdezyn.recipeapp.bootstrap;
 
 import io.devdezyn.recipeapp.domain.*;
 import io.devdezyn.recipeapp.repositories.*;
+import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j // This would inject a logger
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -19,14 +21,17 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
 
-    public RecipeBootstrap(CategoryRepository categoryRepository, RecipeRepository recipeRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
+    public RecipeBootstrap(CategoryRepository categoryRepository, RecipeRepository recipeRepository,
+            UnitOfMeasureRepository unitOfMeasureRepository) {
         this.categoryRepository = categoryRepository;
         this.recipeRepository = recipeRepository;
         this.unitOfMeasureRepository = unitOfMeasureRepository;
     }
 
+    // @Transactional
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
+        log.debug("Loading Recipe Bootstrap Data");
         recipeRepository.saveAll(getRecipes());
     }
 
