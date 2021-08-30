@@ -18,6 +18,22 @@ http://localhost:8080/h2-console
 
 - Short:
 
+## Web Jars
+
+```xml
+  <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>bootstrap</artifactId>
+      <version>5.1.0</version>
+  </dependency>
+```
+
+usage:
+
+```html
+
+```
+
 ## JUnit Test
 
 - Install Lombok Annotation extension in VS Code
